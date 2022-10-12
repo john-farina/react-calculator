@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Cream";
+  src: url("./Fonts/cream.ttf");
+}
+body {
+  margin: 0;
+  width: 100%;
+  font-family: "Cream";
+}
+
+$PCblack: rgb(17, 17, 17);
+$PCgold: rgb(235, 177, 4);
+$PCorange: rgb(226, 89, 26);
+$PCwhite: rgb(239, 239, 239);
+$backgroundColor: rgb(163, 217, 255);
+
+.calculatorCont {
+  background-color: $backgroundColor;
+  height: 100%;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 400px;
+  height: 500px;
+  background-color: rgb(69, 69, 69);
+}
+.calcScreen {
+  width: 90%;
+  height: 100px;
+  background-color: rgb(101, 101, 101);
+}
+
+$PCblack: rgb(17, 17, 17);
+
+.pocketCalculator {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  position: relative;
+  width: 350px;
+  height: 550px;
+  background-color: $PCblack;
+
+  .topHolder {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 80px;
+    background-color: $PCblack;
+    margin-top: -90px;
+    border-radius: 60px;
+
+    .middleOpening {
+      position: relative;
+      width: 70%;
+      height: 30px;
+      background-color: $backgroundColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: inherit;
+
+      .openingTop {
+        position: absolute;
+        margin-top: -25px;
+        width: 30px;
+        height: 30px;
+        background-color: $backgroundColor;
+        border-radius: 50%;
+      }
+    }
+    .textContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      width: 60%;
+      height: 25px;
+      color: $PCgold;
+    }
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    width: 100%;
+    height: 10%;
+
+    .topLogos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 80px;
+      // background-color: blue;
+      color: $PCorange;
+
+      .KOtext {
+        font-size: 1.4rem;
+        word-spacing: -7px;
+        font-weight: 100;
+        margin-left: 0px;
+        .exPoint {
+          transform-origin: 0 0;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+  .screenContainer {
+    border: 1px solid white;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .screenBack {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 95%;
+      height: 90%;
+      background-color: rgb(34, 34, 34);
+
+      .screenBar {
+        height: 100%;
+        width: 10px;
+        background-color: rgb(162, 162, 162);
+        border-radius: 1px;
+      }
+      .screen {
+        position: absolute;
+        width: 98%;
+        height: 90%;
+        background-color: gray;
+      }
+    }
+  }
+  .bottom {
+    border: 1px solid white;
+    width: 100%;
+
+    height: 60%;
+  }
+}

@@ -1,6 +1,6 @@
-import { to } from "mathjs";
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
+import PocketCalculator from "./PocketCalculator";
 
 function App() {
   const [numString, setNumString] = useState("");
@@ -132,6 +132,8 @@ function App() {
           </div>
         </div>
       </div>
+
+      <PocketCalculator />
     </div>
   );
 }
