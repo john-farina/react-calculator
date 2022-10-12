@@ -19,7 +19,7 @@ export default function PocketCalculator({
     <div className="pocketCalculator">
       <div className="topHolder">
         <div className="middleOpening">
-          <div className="openingTop"></div>
+          {/* <div className="openingTop"></div> */}
         </div>
         <div className="textContainer">
           <p>pocket calculator</p>
@@ -41,14 +41,18 @@ export default function PocketCalculator({
           <BarLoop />
         </div>
         <div className="screen">
-          <div className="mainTextContainer">
+          <div className="mainText">
+            <p className="text backText">88888888888888888888</p>
+            <p className="text ">{ifNoneShow()}</p>
+          </div>
+          {/* <div className="mainTextContainer">
             <p className="text backText">8888888888888888</p>
             <p className="text frontText">{ifNoneShow()}</p>
           </div>
           <div className="totalTextContainer">
             <p className="totalText">TOTAL:</p>
             <p className="totalNumber totalBack">00000000000000</p>
-          </div>
+          </div> */}
         </div>
       </div>
 
