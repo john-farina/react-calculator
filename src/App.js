@@ -83,7 +83,7 @@ function App() {
 
   function ifNoneShow0() {
     if (numString === "") {
-      return "0";
+      return total.toString();
     } else {
       return numString;
     }
@@ -133,7 +133,16 @@ function App() {
         </div>
       </div>
 
-      <PocketCalculator />
+      <PocketCalculator
+        ifNoneShow={ifNoneShow0}
+        onNumBtnClick={onNumBtnClick}
+        onCCBtnClick={onCCBtnClick}
+        onAddBtnClick={onAddBtnClick}
+        onSubBtnClick={onSubBtnClick}
+        onMultiplyBtnClick={onMultiplyBtnClick}
+        onDivideBtnClick={onDivideBtnClick}
+        onEqualBtnClick={onEqualBtnClick}
+      />
     </div>
   );
 }
