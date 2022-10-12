@@ -21,6 +21,10 @@ $backgroundColor: rgb(163, 217, 255);
 .calculatorCont {
   background-color: $backgroundColor;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .calc {
@@ -205,6 +209,7 @@ $PCblack: rgb(17, 17, 17);
       //   }
       // }
       .mainText {
+        // background-color: blue;
         position: relative;
         width: 100%;
         height: 40px;
@@ -216,9 +221,12 @@ $PCblack: rgb(17, 17, 17);
         font-size: 2.2rem;
         .text {
           margin-left: 7px;
+          position: relative;
         }
         .backText {
           position: absolute;
+          bottom: 0;
+          margin-bottom: 0px;
           opacity: 10%;
         }
       }

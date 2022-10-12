@@ -91,6 +91,17 @@ function App() {
 
   return (
     <div className="calculatorCont">
+      <PocketCalculator
+        ifNoneShow={ifNoneShow0}
+        onNumBtnClick={onNumBtnClick}
+        onCCBtnClick={onCCBtnClick}
+        onAddBtnClick={onAddBtnClick}
+        onSubBtnClick={onSubBtnClick}
+        onMultiplyBtnClick={onMultiplyBtnClick}
+        onDivideBtnClick={onDivideBtnClick}
+        onEqualBtnClick={onEqualBtnClick}
+      />
+
       <div className="calc">
         <div className="calcScreen">
           <div className="screenTop">
@@ -132,17 +143,6 @@ function App() {
           </div>
         </div>
       </div>
-
-      <PocketCalculator
-        ifNoneShow={ifNoneShow0}
-        onNumBtnClick={onNumBtnClick}
-        onCCBtnClick={onCCBtnClick}
-        onAddBtnClick={onAddBtnClick}
-        onSubBtnClick={onSubBtnClick}
-        onMultiplyBtnClick={onMultiplyBtnClick}
-        onDivideBtnClick={onDivideBtnClick}
-        onEqualBtnClick={onEqualBtnClick}
-      />
     </div>
   );
 }
