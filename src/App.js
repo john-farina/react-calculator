@@ -8,88 +8,87 @@ function App() {
   const [whichSign, setWhichSign] = useState("");
 
   function onNumBtnClick(num) {
-    setNumString((old) => old + num);
+    setNumString((old) => old + num.toString());
   }
+
   function defaultMath(expression) {
     setWhichSign(expression);
+
     setTotal((old) => {
+      /////CONVERT
+      let parseNum = Number(numString);
+      setNumString("");
+
       if (old === null) {
-        setNumString("");
-        return Number(numString);
+        return parseNum;
       }
+
       if (expression === "+") {
-        setNumString("");
-        return old + Number(numString);
+        return old + parseNum;
+      } else if (expression === "-") {
+        return old - parseNum;
+      } else if (expression === "*") {
+        return old * parseNum;
+      } else if (expression === "/") {
+        return old / parseNum;
+      } else {
+        return alert("ERROR");
       }
-      if (expression === "-") {
-        setNumString("");
-        return old - Number(numString);
-      }
-      if (expression === "*") {
-        setNumString("");
-        return old * Number(numString);
-      }
-      if (expression === "/") {
-        setNumString("");
-        return old / Number(numString);
-      }
-      return alert("ERROR");
     });
   }
-  function giveExponentClick(exp) {
-    if (exp === "+") {
+
+  //SWITCH TO ON_EXP_CLICK
+  function giveExponentClick(op) {
+    if (op === "+") {
       defaultMath("+");
-    }
-    if (exp === "-") {
+    } else if (op === "-") {
       defaultMath("-");
-    }
-    if (exp === "*") {
+    } else if (op === "*") {
       defaultMath("*");
-    }
-    if (exp === "/") {
+    } else if (op === "/") {
       defaultMath("/");
-    }
-  }
-  function onEqualBtnClick() {
-    if (whichSign === "+") {
-      setTotal((old) => old + Number(numString));
-      setNumString("");
-      setWhichSign("");
-    } else if (whichSign === "-") {
-      let hello = total - Number(numString);
-      setTotal(hello);
-      setNumString("");
-      setWhichSign("");
-    } else if (whichSign === "*") {
-      setTotal((old) => old * Number(numString));
-      setNumString("");
-      setWhichSign("");
-    } else if (whichSign === "/") {
-      setTotal((old) => old / Number(numString));
-      setNumString("");
-      setWhichSign("");
-    }
-  }
-  function giveEqualAndCcClick(which) {
-    if (which === "=") {
-      onEqualBtnClick();
-    }
-    if (which === "CC") {
+      //ADD TO POCKETCALC
+    } else if (op === "CC") {
       setWhichSign("");
       setTotal(null);
       setNumString("");
+    } else {
+      console.log("ERROR");
     }
   }
+
+  //make default null ////
+  function onEqualBtnClick() {
+    if (whichSign === "") {
+      return;
+    }
+
+    let parseNum = Number(numString);
+
+    if (whichSign === "+") {
+      setTotal((old) => old + parseNum);
+    } else if (whichSign === "-") {
+      setTotal((old) => old - parseNum);
+    } else if (whichSign === "*") {
+      setTotal((old) => old * parseNum);
+    } else if (whichSign === "/") {
+      setTotal((old) => old / parseNum);
+    }
+
+    setNumString("");
+    setWhichSign("");
+  }
+
   function setDefaultScreen() {
-    if (numString === "") {
-      if (total) {
-        return total.toString();
-      } else {
-        return "0";
-      }
-    } else {
+    if (numString !== "") {
       return numString;
     }
+
+    if (typeof total === "number") {
+      return total.toString();
+    }
+
+    return "0";
   }
 
   return (
@@ -98,7 +97,7 @@ function App() {
         setDefaultScreen={setDefaultScreen}
         onNumBtnClick={onNumBtnClick}
         giveExponentClick={giveExponentClick}
-        giveEqualAndCcClick={giveEqualAndCcClick}
+        onEqualBtnClick={onEqualBtnClick}
       />
     </div>
   );

@@ -2,25 +2,20 @@ import BarLoop from "./BarLoop";
 import NumberButton from "./NumberButton";
 import ExponentButton from "./ExponentButton";
 import SpinContainer from "./SpinContainer";
-import { useState } from "react";
+let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null, "="];
+let exponentArray = ["+", "-", "*", "/"];
+let ran1 = Math.random() * 381;
+let ran2 = Math.random() * 401;
+
 export default function PocketCalculator({
   setDefaultScreen,
   onNumBtnClick,
   giveExponentClick,
-  giveEqualAndCcClick,
+  onEqualBtnClick,
 }) {
-  function barLoop() {
-    for (let i = 0; i < 8; i++) {
-      return <div className="screenBar"></div>;
-    }
-  }
-  let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null, "="];
-  let exponentArray = ["+", "-", "*", "/"];
-  let [ran1] = useState(Math.random() * 381);
-  let [ran2] = useState(Math.random() * 401);
-
   return (
     <div className="pocketCalculator">
+      {/* TOP */}
       <div className="topHolder">
         <div className="middleOpening">
           {/* <div className="openingTop"></div> */}
@@ -40,6 +35,7 @@ export default function PocketCalculator({
         <div className="topLogos"></div>
       </div>
 
+      {/*  */}
       <div className="screenContainer">
         <div className="screenBack">
           <BarLoop />
@@ -60,25 +56,28 @@ export default function PocketCalculator({
               <div className="buttonBack"></div>
               <div
                 className="buttonSquare"
-                onClick={() => giveEqualAndCcClick("CC")}
+                onClick={() => giveExponentClick("CC")}
               >
                 <div className="button"></div>
               </div>
             </div>
             <p className="buttonText">CC</p>
           </div>
+
           <div className="emptyCont"></div>
           <div className="emptyCont"></div>
           {/* //////////SPIN CONTAINER */}
           <SpinContainer spin={ran1} />
           <SpinContainer spin={ran2} />
         </div>
+
         <div className="bottomContainer">
           <div className="bottomLeft">
             {numberArray.map((num) => {
               if (num === null) {
                 return <div className="emptyCont"></div>;
               }
+
               if (num === "=") {
                 return (
                   <div className="container orange orangeStripe">
@@ -86,7 +85,7 @@ export default function PocketCalculator({
                       <div className="buttonBack"></div>
                       <div
                         className="buttonSquare"
-                        onClick={() => giveEqualAndCcClick("=")}
+                        onClick={() => onEqualBtnClick()}
                       >
                         <div className="button"></div>
                       </div>
@@ -95,11 +94,13 @@ export default function PocketCalculator({
                   </div>
                 );
               }
+
               return (
                 <NumberButton onNumBtnClick={onNumBtnClick} number={num} />
               );
             })}
           </div>
+
           <div className="bottomRight">
             {exponentArray.map((exp) => {
               return (
