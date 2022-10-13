@@ -1,6 +1,7 @@
 import BarLoop from "./BarLoop";
 import NumberButton from "./NumberButton";
 import ExponentButton from "./ExponentButton";
+import SpinContainer from "./SpinContainer";
 export default function PocketCalculator({
   ifNoneShow,
   onNumBtnClick,
@@ -65,6 +66,11 @@ export default function PocketCalculator({
             </div>
             <p className="buttonText">CC</p>
           </div>
+          <div className="emptyCont"></div>
+          <div className="emptyCont"></div>
+          {/* //////////SPIN CONTAINER */}
+          <SpinContainer spin={Math.floor(Math.random() * 361)} />
+          <SpinContainer spin={Math.floor(Math.random() * 361)} />
         </div>
         <div className="bottomContainer">
           <div className="bottomLeft">

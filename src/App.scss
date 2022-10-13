@@ -241,16 +241,6 @@ $PCblack: rgb(17, 17, 17);
     justify-content: start;
     flex-direction: column;
 
-    .buttonRow {
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      // border: 1px solid white;
-      width: 100%;
-      height: 20%;
-      // background-color: cyan;
-    }
-
     .container {
       position: relative;
       width: 20%;
@@ -344,9 +334,70 @@ $PCblack: rgb(17, 17, 17);
     }
 
     .topRow {
+      display: flex;
+      align-items: center;
+      justify-content: start;
       width: 100%;
       height: 70px;
       // background-color: blue;
+
+      .bigSpinContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100%;
+        width: 70px;
+        // background-color: purple;
+
+        .backing {
+          position: absolute;
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          justify-content: center;
+          width: 75%;
+          height: 90%;
+          background-color: rgb(34, 34, 34);
+
+          .longRows {
+            height: 100%;
+            width: 8px;
+            border-radius: 2px;
+            background-color: silver;
+          }
+        }
+        .buttonContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 3;
+          width: 75%;
+          height: 80%;
+          background-color: rgb(177, 177, 177);
+
+          .button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: rgb(109, 109, 109);
+            border: 2px solid rgb(87, 87, 87);
+
+            .buttonIndent {
+              // transform: rotate(40deg);
+              position: absolute;
+              width: 70%;
+              height: 7px;
+              border-radius: 15px;
+              background-color: rgb(71, 71, 71);
+            }
+          }
+        }
+      }
     }
     .bottomContainer {
       // background-color: red;
