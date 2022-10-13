@@ -239,6 +239,30 @@ $PCblack: rgb(17, 17, 17);
           opacity: 10%;
         }
       }
+
+      .bottomRightExpressions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 5px;
+        width: 130px;
+        height: 25px;
+        // background-color: red;
+        display: flex;
+        .exBox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          width: 20%;
+          // background-color: blue;
+          .expression {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 20%;
+          }
+        }
+      }
     }
   }
   .bottom {

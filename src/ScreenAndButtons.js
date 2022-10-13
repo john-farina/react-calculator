@@ -21,6 +21,23 @@ export default function ScreenAndButtons({
 
         <div className="screen">
           <img src={ScreenTexture} className="screenTexture" />
+          <div className="bottomRightExpressions">
+            <div className="exBox">
+              <p className="expression">+</p>
+            </div>
+            <div className="exBox">
+              <p className="expression">-</p>
+            </div>
+            <div className="exBox">
+              <p className="expression">*</p>
+            </div>
+            <div className="exBox">
+              <p className="expression">/</p>
+            </div>
+            <div className="exBox">
+              <p className="expression">^2</p>
+            </div>
+          </div>
           <div className="mainText">
             <p className="text backText">88888888888888888888</p>
             <p className="text ">{setDefaultScreen()}</p>
