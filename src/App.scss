@@ -524,3 +524,17 @@ $PCblack: rgb(17, 17, 17);
     }
   }
 }
+
+.spinAnimate {
+  animation: spinAnimate 0.8s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes spinAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
