@@ -4,48 +4,62 @@ import PocketCalculator from "./PocketCalculator";
 
 function App() {
   const [numString, setNumString] = useState("");
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(null);
   const [whichSign, setWhichSign] = useState("");
-  const [firstHasEnded, setFirstHasEnded] = useState(false);
+  // const [firstHasEnded, setFirstHasEnded] = useState(false);
 
+  ////
   function onNumBtnClick(num) {
     setNumString((old) => old + num);
   }
-  function clearSignAndDoMath() {
-    if (whichSign === "+") {
-    }
-  }
+
+  // function clearSignAndDoMath() {
+  //   if (whichSign === "+") {
+  //   }
+  // }
+
   function onAddBtnClick() {
+    // setWhichSign("+");
+    // setTotal((old) => old + Number(numString));
+    // setNumString("");
     setWhichSign("+");
-    setTotal((old) => old + Number(numString));
-    setNumString("");
+    setTotal((old) => {
+      if (old === null) {
+        setNumString("");
+        return Number(numString);
+      }
+      setNumString("");
+      return old + Number(numString);
+    });
   }
+
   function onSubBtnClick() {
-    if (total === 0) {
-      setWhichSign("-");
-      let hello = Number(numString);
-      setTotal(hello);
+    setWhichSign("-");
+    setTotal((old) => {
+      if (old === null) {
+        setNumString("");
+        return Number(numString);
+      }
       setNumString("");
-    } else {
-      setWhichSign("-");
-      let hello = Number(numString) - total;
-      setTotal(hello);
-      setNumString("");
-    }
+      return old - Number(numString);
+    });
   }
+
   function onMultiplyBtnClick() {
-    if (total === 0) {
-      setWhichSign("*");
-      setTotal(Number(numString));
+    setWhichSign("*");
+    setTotal((old) => {
+      if (old === null) {
+        setNumString("");
+        return Number(numString);
+      }
       setNumString("");
-    } else {
-      setWhichSign("*");
-      setTotal((old) => old * Number(numString));
-      setNumString("");
-    }
+      return old * Number(numString);
+    });
   }
+
   function onDivideBtnClick() {
-    if (total === 0) {
+    console.log("a");
+    if (total === null) {
       setWhichSign("/");
       setTotal(Number(numString));
       setNumString("");
@@ -55,13 +69,29 @@ function App() {
       setNumString("");
     }
   }
+
+  function giveExponentClick(exp) {
+    if (exp === "+") {
+      onAddBtnClick();
+    }
+    if (exp === "-") {
+      onSubBtnClick();
+    }
+    if (exp === "*") {
+      onMultiplyBtnClick();
+    }
+    if (exp === "/") {
+      onDivideBtnClick();
+    }
+  }
+
   function onEqualBtnClick() {
     if (whichSign === "+") {
       setTotal((old) => old + Number(numString));
       setNumString("");
       setWhichSign("");
     } else if (whichSign === "-") {
-      let hello = Number(numString) - total;
+      let hello = total - Number(numString);
       setTotal(hello);
       setNumString("");
       setWhichSign("");
@@ -77,13 +107,17 @@ function App() {
   }
   function onCCBtnClick() {
     setWhichSign("");
-    setTotal(0);
+    setTotal(null);
     setNumString("");
   }
 
   function ifNoneShow0() {
     if (numString === "") {
-      return total.toString();
+      if (total) {
+        return total.toString();
+      } else {
+        return "0";
+      }
     } else {
       return numString;
     }
@@ -94,11 +128,8 @@ function App() {
       <PocketCalculator
         ifNoneShow={ifNoneShow0}
         onNumBtnClick={onNumBtnClick}
+        giveExponentClick={giveExponentClick}
         onCCBtnClick={onCCBtnClick}
-        onAddBtnClick={onAddBtnClick}
-        onSubBtnClick={onSubBtnClick}
-        onMultiplyBtnClick={onMultiplyBtnClick}
-        onDivideBtnClick={onDivideBtnClick}
         onEqualBtnClick={onEqualBtnClick}
       />
 

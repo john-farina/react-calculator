@@ -53,7 +53,7 @@ $PCblack: rgb(17, 17, 17);
   flex-direction: column;
   position: relative;
   width: 350px;
-  height: 550px;
+  height: 560px;
   background-color: $PCblack;
 
   .topHolder {
@@ -102,9 +102,9 @@ $PCblack: rgb(17, 17, 17);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid white;
+    // border: 1px solid white;
     width: 100%;
-    height: 10%;
+    height: 8%;
 
     .topLogos {
       display: flex;
@@ -129,7 +129,7 @@ $PCblack: rgb(17, 17, 17);
   }
   .screenContainer {
     position: relative;
-    border: 1px solid white;
+    // border: 1px solid white;
     width: 100%;
     height: 30%;
     display: flex;
@@ -233,7 +233,7 @@ $PCblack: rgb(17, 17, 17);
     }
   }
   .bottom {
-    border: 1px solid white;
+    // border: 1px solid white;
     width: 100%;
     height: 60%;
     display: flex;
@@ -249,84 +249,225 @@ $PCblack: rgb(17, 17, 17);
       width: 100%;
       height: 20%;
       // background-color: cyan;
+    }
 
-      .container {
+    .container {
+      position: relative;
+      width: 20%;
+      height: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+
+      .defaultButton {
         position: relative;
-        width: 20%;
-        height: 100%;
+        width: 100%;
+        height: 90%;
+        // background-color: rgba(128, 0, 128, 0.384);
         display: flex;
-        align-items: start;
+        align-items: center;
         justify-content: center;
 
-        .defaultButton {
-          position: relative;
-          width: 100%;
-          height: 90%;
-          // background-color: rgba(128, 0, 128, 0.384);
+        .buttonBack {
+          z-index: 2;
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: $PCwhite;
+        }
+        .buttonSquare {
+          cursor: pointer;
+          z-index: 3;
+          width: 30px;
+          height: 30px;
+          background-color: rgb(174, 174, 174);
           display: flex;
           align-items: center;
           justify-content: center;
-
-          .buttonBack {
-            z-index: 2;
-            position: absolute;
-            width: 40px;
-            height: 40px;
+          .button {
+            width: 60%;
+            height: 60%;
             border-radius: 50%;
-            background-color: $PCwhite;
+            background-color: black;
           }
+        }
+      }
+      .buttonText {
+        cursor: default;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        margin-bottom: -5px;
+        text-align: center;
+        color: $PCwhite;
+      }
+
+      &:active {
+        .defaultButton {
           .buttonSquare {
-            cursor: pointer;
-            z-index: 3;
-            width: 30px;
-            height: 30px;
-            background-color: rgb(174, 174, 174);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             .button {
-              width: 60%;
-              height: 60%;
-              border-radius: 50%;
-              background-color: black;
+              background-color: rgb(39, 39, 39);
             }
           }
         }
-        .buttonText {
-          cursor: default;
-          position: absolute;
-          bottom: 0;
-          margin: 0;
-          margin-bottom: -5px;
-          text-align: center;
-          color: $PCwhite;
+      }
+    }
+    .emptyCont {
+      position: relative;
+      width: 20%;
+      height: 100%;
+    }
+    .orange {
+      .defaultButton {
+        .buttonBack {
+          background-color: $PCorange;
         }
+      }
+      .buttonText {
+        color: $PCorange;
+      }
+    }
+    .orangeStripe {
+      .defaultButton {
+        .buttonBack {
+          background-color: $PCorange;
+          background: repeating-linear-gradient(
+            -55deg,
+            $PCorange,
+            $PCorange 2px,
+            $PCblack 2px,
+            $PCblack 5px
+          );
+        }
+      }
+    }
 
-        &:active {
+    .topRow {
+      width: 100%;
+      height: 70px;
+      // background-color: blue;
+    }
+    .bottomContainer {
+      // background-color: red;
+      height: 80%;
+      width: 100%;
+      display: flex;
+
+      .bottomLeft {
+        // background-color: red;
+        width: 60%;
+        height: 100%;
+        // background-color: purple;
+        display: grid;
+        grid-template-rows: 25% 25% 25% 25%;
+        grid-template-columns: 33% 33% 33%;
+        flex-direction: row;
+      }
+      .bottomRight {
+        padding-top: 2px;
+        display: flex;
+
+        flex-direction: column;
+        gap: 0px;
+        width: 20%;
+        height: 100%;
+        // background-color: teal;
+      }
+      .bottomLeft,
+      .bottomRight {
+        .container {
+          // background-color: green;
+          position: relative;
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: start;
+          justify-content: center;
+
           .defaultButton {
+            position: relative;
+            width: 100%;
+            height: 90%;
+            // background-color: rgba(128, 0, 128, 0.384);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .buttonBack {
+              z-index: 2;
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: $PCwhite;
+            }
             .buttonSquare {
+              cursor: pointer;
+              z-index: 3;
+              width: 30px;
+              height: 30px;
+              background-color: rgb(174, 174, 174);
+              display: flex;
+              align-items: center;
+              justify-content: center;
               .button {
-                background-color: rgb(39, 39, 39);
+                width: 60%;
+                height: 60%;
+                border-radius: 50%;
+                background-color: black;
+              }
+            }
+          }
+          .buttonText {
+            // background-color: red;
+            cursor: default;
+            position: absolute;
+
+            margin: 0;
+            margin-bottom: -2px;
+            text-align: center;
+            color: $PCwhite;
+          }
+
+          &:active {
+            .defaultButton {
+              .buttonSquare {
+                .button {
+                  background-color: rgb(39, 39, 39);
+                }
               }
             }
           }
         }
-      }
-
-      .emptyCont {
-        position: relative;
-        width: 20%;
-        height: 100%;
-      }
-
-      .orange {
-        .defaultButton {
-          .buttonBack {
-            background-color: $PCorange;
+        .emptyCont {
+          position: relative;
+          width: 70px;
+          height: 70px;
+        }
+        .orange {
+          .defaultButton {
+            .buttonBack {
+              background-color: $PCorange;
+            }
+          }
+          .buttonText {
+            color: $PCorange;
           }
         }
-        .buttonText {
-          color: $PCorange;
+        .orangeStripe {
+          .defaultButton {
+            .buttonBack {
+              background-color: $PCorange;
+              background: repeating-linear-gradient(
+                -55deg,
+                $PCorange,
+                $PCorange 2px,
+                $PCblack 2px,
+                $PCblack 5px
+              );
+            }
+          }
         }
       }
     }
