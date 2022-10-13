@@ -217,6 +217,56 @@ $PCblack: rgb(17, 17, 17);
         height: 100%;
       }
 
+      .topRightClock {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 40px;
+        // background-color: red;
+        .timeBox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          width: 75%;
+          // background-color: green;
+          .timeText {
+            opacity: 90%;
+            font-family: "Digital";
+            font-size: 2.2rem;
+            margin-right: 10px;
+          }
+        }
+        .amPmBox {
+          font-family: "Courier New", Courier, monospace;
+          font-weight: 900;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 25%;
+          height: 100%;
+          opacity: 90%;
+
+          // background-color: blue;
+          p {
+            margin: 0;
+          }
+
+          .am {
+            margin-bottom: -7px;
+            opacity: 15%;
+          }
+          .pm {
+            margin-bottom: 1px;
+          }
+        }
+      }
+
       .mainText {
         // background-color: blue;
         position: relative;
@@ -245,21 +295,29 @@ $PCblack: rgb(17, 17, 17);
         bottom: 0;
         right: 0;
         margin-right: 5px;
-        width: 130px;
+        width: 100px;
         height: 25px;
         // background-color: red;
         display: flex;
+        align-items: center;
+        justify-content: center;
         .exBox {
           display: flex;
           align-items: center;
           justify-content: center;
           height: 100%;
-          width: 20%;
+          width: 25%;
           // background-color: blue;
-          .expression {
-            text-align: center;
-            font-size: 1.2rem;
-            opacity: 20%;
+          .exIcon {
+            opacity: 15%;
+            width: 15px;
+          }
+          .iconShow {
+            opacity: 100%;
+          }
+
+          .multiplyIcon {
+            width: 12px;
           }
         }
       }

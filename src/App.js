@@ -8,6 +8,9 @@ function App() {
   const [whichSign, setWhichSign] = useState("");
 
   function onNumBtnClick(num) {
+    if (numString.length === 20) {
+      return;
+    }
     setNumString((old) => old + num.toString());
   }
 
@@ -118,6 +121,7 @@ function App() {
         onNumBtnClick={onNumBtnClick}
         onExponentClick={onExponentClick}
         onEqualBtnClick={onEqualBtnClick}
+        whichSign={whichSign}
       />
     </div>
   );

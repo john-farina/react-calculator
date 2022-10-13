@@ -6,6 +6,7 @@ export default function PocketCalculator({
   onNumBtnClick,
   onExponentClick,
   onEqualBtnClick,
+  whichSign,
 }) {
   return (
     <div className="pocketCalculator">
@@ -15,6 +16,7 @@ export default function PocketCalculator({
         onExponentClick={onExponentClick}
         onEqualBtnClick={onEqualBtnClick}
         onNumBtnClick={onNumBtnClick}
+        whichSign={whichSign}
       />
     </div>
   );

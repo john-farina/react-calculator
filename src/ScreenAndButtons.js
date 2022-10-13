@@ -2,7 +2,10 @@ import BarLoop from "./BarLoop";
 import SpinContainer from "./SpinContainer";
 import NumberButton from "./NumberButton";
 import ExponentButton from "./ExponentButton";
+import BottomRightExpressions from "./BottomRightExpressions";
 import ScreenTexture from "./images/screen.jpeg";
+import TopRightClock from "./TopRightClock";
+
 let ran1 = Math.random() * 381;
 let ran2 = Math.random() * 401;
 let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null, "="];
@@ -13,6 +16,7 @@ export default function ScreenAndButtons({
   onExponentClick,
   onEqualBtnClick,
   onNumBtnClick,
+  whichSign,
 }) {
   return (
     <>
@@ -21,23 +25,8 @@ export default function ScreenAndButtons({
 
         <div className="screen">
           <img src={ScreenTexture} className="screenTexture" />
-          <div className="bottomRightExpressions">
-            <div className="exBox">
-              <p className="expression">+</p>
-            </div>
-            <div className="exBox">
-              <p className="expression">-</p>
-            </div>
-            <div className="exBox">
-              <p className="expression">*</p>
-            </div>
-            <div className="exBox">
-              <p className="expression">/</p>
-            </div>
-            <div className="exBox">
-              <p className="expression">^2</p>
-            </div>
-          </div>
+          <TopRightClock />
+          <BottomRightExpressions whichSign={whichSign} />
           <div className="mainText">
             <p className="text backText">88888888888888888888</p>
             <p className="text ">{setDefaultScreen()}</p>
