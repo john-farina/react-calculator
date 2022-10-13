@@ -6,85 +6,50 @@ function App() {
   const [numString, setNumString] = useState("");
   const [total, setTotal] = useState(null);
   const [whichSign, setWhichSign] = useState("");
-  // const [firstHasEnded, setFirstHasEnded] = useState(false);
 
-  ////
   function onNumBtnClick(num) {
     setNumString((old) => old + num);
   }
-
-  // function clearSignAndDoMath() {
-  //   if (whichSign === "+") {
-  //   }
-  // }
-
-  function onAddBtnClick() {
-    // setWhichSign("+");
-    // setTotal((old) => old + Number(numString));
-    // setNumString("");
-    setWhichSign("+");
+  function defaultMath(expression) {
+    setWhichSign(expression);
     setTotal((old) => {
       if (old === null) {
         setNumString("");
         return Number(numString);
       }
-      setNumString("");
-      return old + Number(numString);
-    });
-  }
-
-  function onSubBtnClick() {
-    setWhichSign("-");
-    setTotal((old) => {
-      if (old === null) {
+      if (expression === "+") {
         setNumString("");
-        return Number(numString);
+        return old + Number(numString);
       }
-      setNumString("");
-      return old - Number(numString);
-    });
-  }
-
-  function onMultiplyBtnClick() {
-    setWhichSign("*");
-    setTotal((old) => {
-      if (old === null) {
+      if (expression === "-") {
         setNumString("");
-        return Number(numString);
+        return old - Number(numString);
       }
-      setNumString("");
-      return old * Number(numString);
+      if (expression === "*") {
+        setNumString("");
+        return old * Number(numString);
+      }
+      if (expression === "/") {
+        setNumString("");
+        return old / Number(numString);
+      }
+      return alert("ERROR");
     });
   }
-
-  function onDivideBtnClick() {
-    console.log("a");
-    if (total === null) {
-      setWhichSign("/");
-      setTotal(Number(numString));
-      setNumString("");
-    } else {
-      setWhichSign("/");
-      setTotal((old) => old / Number(numString));
-      setNumString("");
-    }
-  }
-
   function giveExponentClick(exp) {
     if (exp === "+") {
-      onAddBtnClick();
+      defaultMath("+");
     }
     if (exp === "-") {
-      onSubBtnClick();
+      defaultMath("-");
     }
     if (exp === "*") {
-      onMultiplyBtnClick();
+      defaultMath("*");
     }
     if (exp === "/") {
-      onDivideBtnClick();
+      defaultMath("/");
     }
   }
-
   function onEqualBtnClick() {
     if (whichSign === "+") {
       setTotal((old) => old + Number(numString));
@@ -105,13 +70,17 @@ function App() {
       setWhichSign("");
     }
   }
-  function onCCBtnClick() {
-    setWhichSign("");
-    setTotal(null);
-    setNumString("");
+  function giveEqualAndCcClick(which) {
+    if (which === "=") {
+      onEqualBtnClick();
+    }
+    if (which === "CC") {
+      setWhichSign("");
+      setTotal(null);
+      setNumString("");
+    }
   }
-
-  function ifNoneShow0() {
+  function setDefaultScreen() {
     if (numString === "") {
       if (total) {
         return total.toString();
@@ -126,54 +95,11 @@ function App() {
   return (
     <div className="calculatorCont">
       <PocketCalculator
-        ifNoneShow={ifNoneShow0}
+        setDefaultScreen={setDefaultScreen}
         onNumBtnClick={onNumBtnClick}
         giveExponentClick={giveExponentClick}
-        onCCBtnClick={onCCBtnClick}
-        onEqualBtnClick={onEqualBtnClick}
+        giveEqualAndCcClick={giveEqualAndCcClick}
       />
-
-      <div className="calc">
-        <div className="calcScreen">
-          <div className="screenTop">
-            TOTAL: {total} {whichSign}
-          </div>
-          <div className="screenBottom">
-            {" "}
-            <h1>STRING: {ifNoneShow0()}</h1>
-          </div>
-        </div>
-        <div className="calcButtons">
-          <div className="butRow">
-            <button onClick={() => onNumBtnClick(1)}>1</button>
-            <button onClick={() => onNumBtnClick(2)}>2</button>
-            <button onClick={() => onNumBtnClick(3)}>3</button>
-          </div>
-          <div className="butRow">
-            <button onClick={() => onNumBtnClick(4)}>4</button>
-            <button onClick={() => onNumBtnClick(5)}>5</button>
-            <button onClick={() => onNumBtnClick(6)}>6</button>
-          </div>
-          <div className="butRow">
-            <button onClick={() => onNumBtnClick(7)}>7</button>
-            <button onClick={() => onNumBtnClick(8)}>8</button>
-            <button onClick={() => onNumBtnClick(9)}>9</button>
-          </div>
-          <div className="butRow">
-            <button onClick={() => onNumBtnClick(0)}>0</button>
-          </div>
-          <div className="butRow">
-            <button onClick={() => onAddBtnClick()}>+</button>
-            <button onClick={() => onSubBtnClick()}>-</button>
-            <button onClick={() => onMultiplyBtnClick()}>*</button>
-            <button onClick={() => onDivideBtnClick()}>÷</button>
-          </div>
-          <div className="butRow">
-            <button onClick={() => onEqualBtnClick()}>=</button>
-            <button onClick={() => onCCBtnClick()}>CC</button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

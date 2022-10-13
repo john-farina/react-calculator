@@ -4,15 +4,10 @@ import ExponentButton from "./ExponentButton";
 import SpinContainer from "./SpinContainer";
 import { useState } from "react";
 export default function PocketCalculator({
-  ifNoneShow,
+  setDefaultScreen,
   onNumBtnClick,
-  onCCBtnClick,
-  onAddBtnClick,
-  onSubBtnClick,
-  onMultiplyBtnClick,
-  onDivideBtnClick,
-  onEqualBtnClick,
   giveExponentClick,
+  giveEqualAndCcClick,
 }) {
   function barLoop() {
     for (let i = 0; i < 8; i++) {
@@ -52,7 +47,7 @@ export default function PocketCalculator({
         <div className="screen">
           <div className="mainText">
             <p className="text backText">88888888888888888888</p>
-            <p className="text ">{ifNoneShow()}</p>
+            <p className="text ">{setDefaultScreen()}</p>
           </div>
           .
         </div>
@@ -63,7 +58,10 @@ export default function PocketCalculator({
           <div className="container orange orangeStripe">
             <div className="defaultButton">
               <div className="buttonBack"></div>
-              <div className="buttonSquare" onClick={() => onCCBtnClick()}>
+              <div
+                className="buttonSquare"
+                onClick={() => giveEqualAndCcClick("CC")}
+              >
                 <div className="button"></div>
               </div>
             </div>
@@ -88,7 +86,7 @@ export default function PocketCalculator({
                       <div className="buttonBack"></div>
                       <div
                         className="buttonSquare"
-                        onClick={() => onEqualBtnClick()}
+                        onClick={() => giveEqualAndCcClick("=")}
                       >
                         <div className="button"></div>
                       </div>
