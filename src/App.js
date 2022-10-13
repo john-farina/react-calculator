@@ -15,7 +15,6 @@ function App() {
     setWhichSign(expression);
 
     setTotal((old) => {
-      /////CONVERT
       let parseNum = Number(numString);
       setNumString("");
 
@@ -38,7 +37,7 @@ function App() {
   }
 
   //SWITCH TO ON_EXP_CLICK
-  function giveExponentClick(op) {
+  function onExponentClick(op) {
     if (op === "+") {
       defaultMath("+");
     } else if (op === "-") {
@@ -96,7 +95,7 @@ function App() {
       <PocketCalculator
         setDefaultScreen={setDefaultScreen}
         onNumBtnClick={onNumBtnClick}
-        giveExponentClick={giveExponentClick}
+        giveExponentClick={onExponentClick}
         onEqualBtnClick={onEqualBtnClick}
       />
     </div>
