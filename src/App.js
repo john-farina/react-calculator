@@ -15,11 +15,30 @@ function App() {
     setWhichSign(expression);
 
     setTotal((old) => {
-      let parseNum = Number(numString);
+      let parseNum;
+      if (numString === "") {
+        parseNum = 0;
+      } else {
+        parseNum = Number(numString);
+      }
       setNumString("");
 
       if (old === null) {
         return parseNum;
+      }
+
+      if (expression === "2") {
+        if (parseNum === 0) {
+          console.log("PARSE IS 0", parseNum, old);
+          setNumString(old * old);
+          return old * old;
+        }
+        console.log("PARSE IS HERE", parseNum, old);
+        return parseNum * parseNum;
+      }
+      if (expression === "Pi") {
+        setTotal((old) => Math.PI);
+        return;
       }
 
       if (expression === "+") {
@@ -36,7 +55,6 @@ function App() {
     });
   }
 
-  //SWITCH TO ON_EXP_CLICK
   function onExponentClick(op) {
     if (op === "+") {
       defaultMath("+");
@@ -46,7 +64,10 @@ function App() {
       defaultMath("*");
     } else if (op === "/") {
       defaultMath("/");
-      //ADD TO POCKETCALC
+    } else if (op === "2") {
+      defaultMath("2");
+    } else if (op === "Pi") {
+      defaultMath("Pi");
     } else if (op === "CC") {
       setWhichSign("");
       setTotal(null);
@@ -95,7 +116,7 @@ function App() {
       <PocketCalculator
         setDefaultScreen={setDefaultScreen}
         onNumBtnClick={onNumBtnClick}
-        giveExponentClick={onExponentClick}
+        onExponentClick={onExponentClick}
         onEqualBtnClick={onEqualBtnClick}
       />
     </div>

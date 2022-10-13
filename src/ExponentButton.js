@@ -1,12 +1,12 @@
-export default function ExponentButton({ exp, giveExponentClick }) {
+export default function ExponentButton({ exp, onExponentClick, classes }) {
   return (
-    <div className="container orange">
+    <div className={`container ${classes}`}>
       <div className="defaultButton">
         <div className="buttonBack"></div>
         <div
           className="buttonSquare"
           onClick={() => {
-            giveExponentClick(exp);
+            onExponentClick(exp);
           }}
         >
           <div className="button"></div>

@@ -4,5 +4,9 @@ for (let i = 0; i < 17; i++) {
 }
 
 export default function BarLoop() {
-  return bars;
+  return (
+    <>
+      <div className="screenBack">{bars}</div>
+    </>
+  );
 }

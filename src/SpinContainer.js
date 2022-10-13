@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export default function SpinContainer({ spin }) {
-  console.log(spin);
   let [animClass, setAnimClass] = useState("");
   let [animation, setAnimation] = useState(false);
 

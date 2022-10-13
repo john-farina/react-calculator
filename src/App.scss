@@ -13,9 +13,9 @@ body {
 }
 
 $PCblack: rgb(17, 17, 17);
-$PCgold: rgb(235, 177, 4);
-$PCorange: rgb(226, 89, 26);
-$PCwhite: rgb(239, 239, 239);
+$PCgold: rgb(247, 209, 94);
+$PCorange: rgb(232, 113, 58);
+$PCwhite: rgb(224, 224, 224);
 $backgroundColor: rgb(163, 217, 255);
 
 .calculatorCont {
@@ -208,6 +208,15 @@ $PCblack: rgb(17, 17, 17);
       //     letter-spacing: 1px;
       //   }
       // }
+
+      .screenTexture {
+        z-index: 7;
+        opacity: 9%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
       .mainText {
         // background-color: blue;
         position: relative;
@@ -416,12 +425,16 @@ $PCblack: rgb(17, 17, 17);
         flex-direction: row;
       }
       .bottomRight {
+        // background-color: green;
+        margin-top: -1px;
+        // background-color: red;
         padding-top: 2px;
-        display: flex;
-
-        flex-direction: column;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 70px 70px;
+        grid-template-rows: 67px 67px 67px 67px;
         gap: 0px;
-        width: 20%;
+        width: 40%;
         height: 100%;
         // background-color: teal;
       }
@@ -514,6 +527,20 @@ $PCblack: rgb(17, 17, 17);
                 -55deg,
                 $PCorange,
                 $PCorange 2px,
+                $PCblack 2px,
+                $PCblack 5px
+              );
+            }
+          }
+        }
+        .whiteStripe {
+          .defaultButton {
+            .buttonBack {
+              background-color: $PCorange;
+              background: repeating-linear-gradient(
+                -55deg,
+                $PCwhite,
+                $PCwhite 2px,
                 $PCblack 2px,
                 $PCblack 5px
               );
