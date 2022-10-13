@@ -2,6 +2,7 @@ import BarLoop from "./BarLoop";
 import NumberButton from "./NumberButton";
 import ExponentButton from "./ExponentButton";
 import SpinContainer from "./SpinContainer";
+import { useState } from "react";
 export default function PocketCalculator({
   ifNoneShow,
   onNumBtnClick,
@@ -20,6 +21,8 @@ export default function PocketCalculator({
   }
   let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null, "="];
   let exponentArray = ["+", "-", "*", "/"];
+  let [ran1] = useState(Math.random() * 361);
+  let [ran2] = useState(Math.random() * 361);
 
   return (
     <div className="pocketCalculator">
@@ -69,8 +72,8 @@ export default function PocketCalculator({
           <div className="emptyCont"></div>
           <div className="emptyCont"></div>
           {/* //////////SPIN CONTAINER */}
-          <SpinContainer spin={Math.floor(Math.random() * 361)} />
-          <SpinContainer spin={Math.floor(Math.random() * 361)} />
+          <SpinContainer spin={ran1} />
+          <SpinContainer spin={ran2} />
         </div>
         <div className="bottomContainer">
           <div className="bottomLeft">
