@@ -21,8 +21,8 @@ export default function PocketCalculator({
   }
   let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null, "="];
   let exponentArray = ["+", "-", "*", "/"];
-  let [ran1] = useState(Math.random() * 361);
-  let [ran2] = useState(Math.random() * 361);
+  let [ran1] = useState(Math.random() * 381);
+  let [ran2] = useState(Math.random() * 401);
 
   return (
     <div className="pocketCalculator">
