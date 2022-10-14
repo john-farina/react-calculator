@@ -60,6 +60,7 @@ $PCblack: rgb(17, 17, 17);
   height: 560px;
   background-color: $PCblack;
   border-radius: 7px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 10%);
 
   .topHolder {
     position: absolute;
@@ -69,8 +70,10 @@ $PCblack: rgb(17, 17, 17);
     width: 250px;
     height: 80px;
     background-color: $PCblack;
+    writing-mode: horizontal-lr;
     margin-top: -90px;
     border-radius: 60px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 10%);
 
     .middleOpening {
       position: relative;
@@ -115,6 +118,7 @@ $PCblack: rgb(17, 17, 17);
         height: 100%;
         width: 10px;
         background-color: $PCblack;
+        box-shadow: 8px 8px 4px rgba(0, 0, 0, 10%);
       }
     }
   }
