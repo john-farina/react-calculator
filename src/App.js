@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./App.scss";
 import PocketCalculator from "./PocketCalculator";
 
+// IF SWITCHING SIGNS AND DIDNT PROCESS MATH PROCESS THE MATH BEFORE SWITCHING SIGNS (BUG)
+//EX: 5 + 5 - 3 = 0 becuase when you hit subtract it minuses 5 from 5
+
 function App() {
   const [numString, setNumString] = useState("");
   const [total, setTotal] = useState(null);
@@ -9,6 +12,10 @@ function App() {
 
   function onNumBtnClick(num) {
     if (numString.length === 20) {
+      return;
+    }
+    if (num === "Pi") {
+      setNumString(Math.PI);
       return;
     }
     setNumString((old) => old + num.toString());
@@ -19,8 +26,10 @@ function App() {
 
     setTotal((old) => {
       let parseNum;
-      if (numString === "") {
+      if (numString === "" && old === null) {
         parseNum = 0;
+      } else if (old) {
+        parseNum = old;
       } else {
         parseNum = Number(numString);
       }
@@ -28,20 +37,6 @@ function App() {
 
       if (old === null) {
         return parseNum;
-      }
-
-      if (expression === "2") {
-        if (parseNum === 0) {
-          console.log("PARSE IS 0", parseNum, old);
-          setNumString(old * old);
-          return old * old;
-        }
-        console.log("PARSE IS HERE", parseNum, old);
-        return parseNum * parseNum;
-      }
-      if (expression === "Pi") {
-        setTotal((old) => Math.PI);
-        return;
       }
 
       if (expression === "+") {
@@ -52,6 +47,17 @@ function App() {
         return old * parseNum;
       } else if (expression === "/") {
         return old / parseNum;
+      } else if (expression === "2") {
+        if (parseNum === 0) {
+          console.log("PARSE IS 0", parseNum, old);
+          setNumString(old * old);
+          return old * old;
+        }
+        console.log("PARSE IS HERE", parseNum, old);
+        return parseNum * parseNum;
+      } else if (expression === "Pi") {
+        console.log("PARSE " + parseNum, "OLD " + old);
+        setNumString(Math.PI.toString());
       } else {
         return alert("ERROR");
       }

@@ -93,11 +93,11 @@ export default function ScreenAndButtons({
             {exponentArray.map((exp) => {
               if (exp === "Pi") {
                 return (
-                  <ExponentButton
-                    exp={exp}
-                    onExponentClick={onExponentClick}
-                    key={exp}
-                    classes={"whiteStripe"}
+                  <NumberButton
+                    number={"Pi"}
+                    key={"Pi"}
+                    onEqualBtnClick={onEqualBtnClick}
+                    onNumBtnClick={onNumBtnClick}
                   />
                 );
               }

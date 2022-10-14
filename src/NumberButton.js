@@ -16,13 +16,39 @@ export default function NumberButton({
   if (number === "=") {
     return (
       <div key={number} className="container orange orangeStripe">
+        <div className={`redLight ${lightClass}`}></div>
         <div className="defaultButton">
           <div className="buttonBack"></div>
-          <div className="buttonSquare" onClick={() => onEqualBtnClick()}>
+          <div
+            className="buttonSquare"
+            onClick={() => {
+              changeLightClass();
+              onEqualBtnClick();
+            }}
+          >
             <div className="button"></div>
           </div>
         </div>
         <p className="buttonText">=</p>
+      </div>
+    );
+  } else if (number === "Pi") {
+    return (
+      <div className="container whiteStripe">
+        <div className={`redLight ${lightClass}`}></div>
+        <div className="defaultButton">
+          <div className="buttonBack"></div>
+          <div
+            className="buttonSquare"
+            onClick={() => {
+              changeLightClass();
+              onNumBtnClick("Pi");
+            }}
+          >
+            <div className="button"></div>
+          </div>
+        </div>
+        <p className="buttonText">Pi</p>
       </div>
     );
   } else {
