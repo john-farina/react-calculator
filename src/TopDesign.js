@@ -6,6 +6,10 @@ export default function TopDesign() {
         <div className="textContainer">
           <p>pocket calculator</p>
         </div>
+        <div className="legsContainer">
+          <div className="leg"></div>
+          <div className="leg"></div>
+        </div>
       </div>
 
       <div className="top">

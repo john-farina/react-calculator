@@ -57,6 +57,7 @@ $PCblack: rgb(17, 17, 17);
   width: 350px;
   height: 560px;
   background-color: $PCblack;
+  border-radius: 7px;
 
   .topHolder {
     position: absolute;
@@ -97,6 +98,22 @@ $PCblack: rgb(17, 17, 17);
       width: 60%;
       height: 25px;
       color: $PCgold;
+    }
+    .legsContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      width: 42%;
+      height: 20px;
+      bottom: 0;
+      margin-bottom: -15px;
+      // background-color: purple;
+      .leg {
+        height: 100%;
+        width: 10px;
+        background-color: $PCblack;
+      }
     }
   }
 
