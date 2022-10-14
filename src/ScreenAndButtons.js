@@ -5,6 +5,8 @@ import ExponentButton from "./ExponentButton";
 import BottomRightExpressions from "./BottomRightExpressions";
 import ScreenTexture from "./images/screen.jpeg";
 import TopRightClock from "./TopRightClock";
+import TrashIcon from "./images/trash.svg";
+import PieIcon from "./images/pie.svg";
 
 let ran1 = Math.random() * 381;
 let ran2 = Math.random() * 401;
@@ -36,6 +38,7 @@ export default function ScreenAndButtons({
 
       <div className="bottom">
         <div className="topRow">
+          <img src={TrashIcon} className="trashIcon" alt="" />
           <div className="container orange orangeStripe">
             <div className="defaultButton">
               <div className="buttonBack"></div>
@@ -59,30 +62,19 @@ export default function ScreenAndButtons({
 
         <div className="bottomContainer">
           <div className="bottomLeft">
+            <div className="leftLinesCont">
+              <div className="lineBox top"></div>
+              <div className="lineText">NUMBERS</div>
+              <div className="lineBox bottom"></div>
+            </div>
             {numberArray.map((num) => {
               if (num === null) {
                 return <div key={num} className="emptyCont"></div>;
               }
 
-              if (num === "=") {
-                return (
-                  <div key={num} className="container orange orangeStripe">
-                    <div className="defaultButton">
-                      <div className="buttonBack"></div>
-                      <div
-                        className="buttonSquare"
-                        onClick={() => onEqualBtnClick()}
-                      >
-                        <div className="button"></div>
-                      </div>
-                    </div>
-                    <p className="buttonText">=</p>
-                  </div>
-                );
-              }
-
               return (
                 <NumberButton
+                  onEqualBtnClick={onEqualBtnClick}
                   key={num}
                   onNumBtnClick={onNumBtnClick}
                   number={num}
@@ -92,6 +84,12 @@ export default function ScreenAndButtons({
           </div>
 
           <div className="bottomRight">
+            <div className="rightLinesCont">
+              <div className="lineBox top"></div>
+              <div className="lineText">OPERATIONS</div>
+              <div className="lineBox bottom"></div>
+            </div>
+            <img src={PieIcon} className="pieIcon" alt="" />
             {exponentArray.map((exp) => {
               if (exp === "Pi") {
                 return (
