@@ -6,11 +6,6 @@
   font-family: "Digital";
   src: url("./Fonts/digital.otf");
 }
-body {
-  margin: 0;
-  width: 100%;
-  font-family: "Cream";
-}
 
 $PCblack: rgb(17, 17, 17);
 $PCgold: rgb(247, 209, 94);
@@ -18,7 +13,14 @@ $PCorange: #e8713a;
 $FILTERorange: invert(51%) sepia(13%) saturate(3709%) hue-rotate(337deg)
   brightness(90%) contrast(82%);
 $PCwhite: rgb(224, 224, 224);
-$backgroundColor: rgb(163, 217, 255);
+$backgroundColor: rgb(224, 134, 69);
+
+body {
+  margin: 0;
+  width: 100%;
+  font-family: "Cream";
+  background-color: $backgroundColor;
+}
 
 .calculatorCont {
   background-color: $backgroundColor;

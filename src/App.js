@@ -55,9 +55,6 @@ function App() {
         }
         console.log("PARSE IS HERE", parseNum, old);
         return parseNum * parseNum;
-      } else if (expression === "Pi") {
-        console.log("PARSE " + parseNum, "OLD " + old);
-        setNumString(Math.PI.toString());
       } else {
         return alert("ERROR");
       }
