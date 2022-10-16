@@ -26,13 +26,15 @@ function App() {
 
     setTotal((old) => {
       let parseNum;
-      if (numString === "" && old === null) {
+
+      if (numString === "") {
+        console.log(parseNum, old, "first numString is empty");
         parseNum = 0;
-      } else if (old) {
-        parseNum = old;
       } else {
+        console.log(parseNum, old, "second numString isnt empty");
         parseNum = Number(numString);
       }
+
       setNumString("");
 
       if (old === null) {
