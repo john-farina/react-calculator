@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.scss";
-import PocketCalculator from "./PocketCalculator";
+import PocketCalculator from "./components/PocketCalculator";
 
 // IF SWITCHING SIGNS AND DIDNT PROCESS MATH PROCESS THE MATH BEFORE SWITCHING SIGNS (BUG)
 //EX: 5 + 5 - 3 = 0 becuase when you hit subtract it minuses 5 from 5

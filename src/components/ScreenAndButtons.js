@@ -3,10 +3,10 @@ import SpinContainer from "./SpinContainer";
 import NumberButton from "./NumberButton";
 import ExponentButton from "./ExponentButton";
 import BottomRightExpressions from "./BottomRightExpressions";
-import ScreenTexture from "./images/screen.jpeg";
+import ScreenTexture from "../images/screen.jpeg";
 import TopRightClock from "./TopRightClock";
-import TrashIcon from "./images/trash.svg";
-import PieIcon from "./images/pie.svg";
+import TrashIcon from "../images/trash.svg";
+import PieIcon from "../images/pie.svg";
 
 let ran1 = Math.random() * 381;
 let ran2 = Math.random() * 401;
