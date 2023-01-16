@@ -1,26 +1,5 @@
 <a name="readme-top"></a>
 
-<!-- what i did in this project
-
-i used 2 states in react, a number string, a total
-these are states because it would be ideal if it updated everytime this value updates since in calculators all u see is the numbers ur typing and a string,
-
-when user types in a number it is generating a string, then when u choose a exponent that string gets parsed into a number and the math is done using javascript.
-
-after math is done it gets converted back into a string and stored in the state.
-
-DESIGN.
-this design was heavily inspired by Pocket Operators by Teenage Engineering, i tried to make making a calculator as cool as possible and im proud of how the design came out,
-
-The screen was made by putting a screen texture over a div, and the underlying 8's like a classic calculator has is made by a lowered opactiy layer under the main Number String
-
-Added a calculator in the top right with *insert library name*, i chose this library because of the ease of use and how well it can handle what i needed.
-
-Since i was going for a Pokcet Operator look i learned how to remake it
-the stripes under the buttons where made using a repeating gradient in css with a width of 1px creating that look, creating sections in the buttons for numbers and operations.
-
-the dial buttons are purely asthetic but they do have a randomly set rotation so they arent the same everytime, when sliders are clicked they rotate more, just like a pocket operator. -->
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -68,6 +47,8 @@ the dial buttons are purely asthetic but they do have a randomly set rotation so
 
 This is a react built calculator using state for updating, Run simple commands like a real non graphing calculator
 
+<img src="./src/images/readme/First-pocketCalc.gif" />
+
 ### Built With
  - JavaScript, React
  - SCSS
@@ -88,32 +69,41 @@ When the user presses a equation the First string gets parsed and sent into the 
 
 ### Inspiration
 this project was inspired by the look of Pocket Operators by Teenage Engineering, which look like this
-<!-- image -->
+<br/>
+<img src="./src/images/readme/download.png" width="500" />
 <br/>
 I really like this look because it already almost looks like a calculator. And i tried to get as close as i could to re-creating the look and feel
 
 ### Screen & Top
 For the top of the Pocket calculator it has a very distinct look that i had to nail on the browser, so i created a rectangle div and added a border radius, and then put a smaller rectangle inside that is the same color as the background, To create a hole. I then put the Logo on the top.
-<!-- img -->
+
+<img src="./src/images/readme/top.png" width="400" />
+
 The screen was made by putting a screen texture over a div. the result on doing this i found is very good and adds alot to the project, For the background 8's i made these to try to recreate the look of a old calculator how u can see the 8's when they arent on. This was done by changing the opacity and putting it in the background behind the main state String.
-<!-- screen image -->
-The little knobs at the top and bottom of the screen was created using divs and was made to look like open circuitry like the Pocket Operator
+
+<img src="./src/images/readme/screen.png" width="400" />
+
+The little knobs at the top and bottom of the screen was created using divs and was made to look like open circuitry like the Pocket Operator <br/>
 
 ### Body
 
 #### **Buttons**
 The Buttons on a Pocket Operator have a very specifc look, So i again tried to recreate it as well as possible. The Dashed lines behind some of the buttons are created with a CSS gradient that goes for 1px at a degree to create a dash line inside of a circle div.
-<!-- img -->
+
+<img src="./src/images/readme/button.gif" width="150" /> <br/>
+
 Red lights will flash when u click each button trying to emulate the Pocket Operator even more so. *(The icons around some of the buttons are svgs and positioned with css)*
 
 #### **Cateogory Lines**
 The Category Lines where made with 3 divs inside of one, with the lines going up and down only had a top border, and a right or left depending on what side. with text inbetween. i then rotated it 90 degrees and positioned it in the corresponding place
-<!-- img -->
+
+<img src="./src/images/readme/categorys.png" height="300" />
 
 #### **Dials**
 The spinning dials on the body are purely asthetic and are only there because it is a important part on a pocket operator. Each dial will revert to a random position when opening, setting a random degree everytime. When you click it it adds a CSS animation style to it and spins.
 
-<!-- USAGE EXAMPLES -->
+<img src="./src/images/readme/dials.gif" />
+
 ## Usage
 
 To use the Pocket Calculator type in ur equations like you would on a real calculator and press equals to see the result.
