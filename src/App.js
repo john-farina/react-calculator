@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "./App.scss";
-import PocketCalculator from "./components/PocketCalculator";
-
-// IF SWITCHING SIGNS AND DIDNT PROCESS MATH PROCESS THE MATH BEFORE SWITCHING SIGNS (BUG)
-//EX: 5 + 5 - 3 = 0 becuase when you hit subtract it minuses 5 from 5
+import PocketCalculator from "./PocketCalculator";
 
 function App() {
   const [numString, setNumString] = useState("");
@@ -14,10 +11,12 @@ function App() {
     if (numString.length === 20) {
       return;
     }
+
     if (num === "Pi") {
       setNumString(Math.PI);
       return;
     }
+
     setNumString((old) => old + num.toString());
   }
 
@@ -28,12 +27,15 @@ function App() {
       let parseNum;
 
       if (numString === "") {
-        console.log(parseNum, old, "first numString is empty");
+        // console.log(parseNum, old, "first numString is empty");
+
         parseNum = 0;
-      } else {
-        console.log(parseNum, old, "second numString isnt empty");
-        parseNum = Number(numString);
+
+        return;
       }
+      // console.log(parseNum, old, "second numString isnt empty");
+
+      parseNum = Number(numString);
 
       setNumString("");
 
@@ -43,63 +45,106 @@ function App() {
 
       if (expression === "+") {
         return old + parseNum;
-      } else if (expression === "-") {
+      }
+
+      if (expression === "-") {
         return old - parseNum;
-      } else if (expression === "*") {
+      }
+
+      if (expression === "*") {
         return old * parseNum;
-      } else if (expression === "/") {
+      }
+
+      if (expression === "/") {
         return old / parseNum;
-      } else if (expression === "2") {
+      }
+
+      if (expression === "2") {
         if (parseNum === 0) {
-          console.log("PARSE IS 0", parseNum, old);
+          // console.log("PARSE IS 0", parseNum, old);
+
           setNumString(old * old);
+
           return old * old;
         }
-        console.log("PARSE IS HERE", parseNum, old);
+        // console.log("PARSE IS HERE", parseNum, old);
+
         return parseNum * parseNum;
-      } else {
-        return alert("ERROR");
       }
+      return alert("ERROR");
     });
   }
 
   function onExponentClick(op) {
     if (op === "+") {
       defaultMath("+");
-    } else if (op === "-") {
-      defaultMath("-");
-    } else if (op === "*") {
-      defaultMath("*");
-    } else if (op === "/") {
-      defaultMath("/");
-    } else if (op === "2") {
-      defaultMath("2");
-    } else if (op === "Pi") {
-      defaultMath("Pi");
-    } else if (op === "CC") {
-      setWhichSign("");
-      setTotal(null);
-      setNumString("");
-    } else {
-      console.log("ERROR");
+
+      return;
     }
+
+    if (op === "-") {
+      defaultMath("-");
+
+      return;
+    }
+
+    if (op === "*") {
+      defaultMath("*");
+
+      return;
+    }
+
+    if (op === "/") {
+      defaultMath("/");
+
+      return;
+    }
+
+    if (op === "2") {
+      defaultMath("2");
+
+      return;
+    }
+
+    if (op === "Pi") {
+      defaultMath("Pi");
+
+      return;
+    }
+
+    if (op === "CC") {
+      setWhichSign("");
+
+      setTotal(null);
+
+      setNumString("");
+
+      return;
+    }
+
+    console.log("ERROR");
   }
 
-  //make default null ////
   function onEqualBtnClick() {
+    let parseNum = Number(numString);
+
     if (whichSign === "") {
       return;
     }
 
-    let parseNum = Number(numString);
-
     if (whichSign === "+") {
       setTotal((old) => old + parseNum);
-    } else if (whichSign === "-") {
+    }
+
+    if (whichSign === "-") {
       setTotal((old) => old - parseNum);
-    } else if (whichSign === "*") {
+    }
+
+    if (whichSign === "*") {
       setTotal((old) => old * parseNum);
-    } else if (whichSign === "/") {
+    }
+
+    if (whichSign === "/") {
       setTotal((old) => old / parseNum);
     }
 

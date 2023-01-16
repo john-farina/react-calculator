@@ -1,5 +1,5 @@
-import TopDesign from "./TopDesign";
-import ScreenAndButtons from "./ScreenAndButtons";
+import TopDesign from "./components/TopDesign";
+import ScreenAndButtons from "./components/ScreenAndButtons";
 
 export default function PocketCalculator({
   setDefaultScreen,

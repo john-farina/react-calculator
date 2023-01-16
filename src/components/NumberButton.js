@@ -17,8 +17,10 @@ export default function NumberButton({
     return (
       <div key={number} className="container orange orangeStripe">
         <div className={`redLight ${lightClass}`}></div>
+
         <div className="defaultButton">
           <div className="buttonBack"></div>
+
           <div
             className="buttonSquare"
             onClick={() => {
@@ -29,6 +31,7 @@ export default function NumberButton({
             <div className="button"></div>
           </div>
         </div>
+
         <p className="buttonText">=</p>
       </div>
     );
@@ -36,8 +39,10 @@ export default function NumberButton({
     return (
       <div className="container whiteStripe">
         <div className={`redLight ${lightClass}`}></div>
+
         <div className="defaultButton">
           <div className="buttonBack"></div>
+
           <div
             className="buttonSquare"
             onClick={() => {
@@ -48,6 +53,7 @@ export default function NumberButton({
             <div className="button"></div>
           </div>
         </div>
+
         <p className="buttonText">Pi</p>
       </div>
     );
@@ -55,8 +61,10 @@ export default function NumberButton({
     return (
       <div className="container">
         <div className={`redLight ${lightClass}`}></div>
+
         <div className="defaultButton">
           <div className="buttonBack"></div>
+
           <div
             className="buttonSquare"
             onClick={() => {
@@ -67,6 +75,7 @@ export default function NumberButton({
             <div className="button"></div>
           </div>
         </div>
+
         <p className="buttonText">{number}</p>
       </div>
     );

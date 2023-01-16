@@ -9,11 +9,14 @@ export default function ExponentButton({ exp, onExponentClick, classes }) {
       setLightClass("");
     }, 70);
   }
+
   return (
     <div className={`container ${classes}`}>
       <div className={`redLight ${lightClass}`}></div>
+
       <div className="defaultButton">
         <div className="buttonBack"></div>
+
         <div
           className="buttonSquare"
           onClick={() => {
@@ -24,6 +27,7 @@ export default function ExponentButton({ exp, onExponentClick, classes }) {
           <div className="button"></div>
         </div>
       </div>
+
       <p className="buttonText">{exp}</p>
     </div>
   );

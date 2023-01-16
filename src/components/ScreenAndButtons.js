@@ -27,10 +27,14 @@ export default function ScreenAndButtons({
 
         <div className="screen">
           <img src={ScreenTexture} className="screenTexture" />
+
           <TopRightClock />
+
           <BottomRightExpressions whichSign={whichSign} />
+
           <div className="mainText">
             <p className="text backText">88888888888888888888</p>
+
             <p className="text ">{setDefaultScreen()}</p>
           </div>
         </div>
@@ -38,10 +42,12 @@ export default function ScreenAndButtons({
 
       <div className="bottom">
         <div className="topRow">
-          <img src={TrashIcon} className="trashIcon" alt="" />
+          <img src={TrashIcon} className="trashIcon" alt="Trash Icon" />
+
           <div className="container orange orangeStripe">
             <div className="defaultButton">
               <div className="buttonBack"></div>
+
               <div
                 className="buttonSquare"
                 onClick={() => onExponentClick("CC")}
@@ -54,9 +60,11 @@ export default function ScreenAndButtons({
           </div>
 
           <div className="emptyCont"></div>
+
           <div className="emptyCont"></div>
 
           <SpinContainer spin={ran1} />
+
           <SpinContainer spin={ran2} />
         </div>
 
@@ -64,9 +72,12 @@ export default function ScreenAndButtons({
           <div className="bottomLeft">
             <div className="leftLinesCont">
               <div className="lineBox top"></div>
+
               <div className="lineText">NUMBERS</div>
+
               <div className="lineBox bottom"></div>
             </div>
+
             {numberArray.map((num) => {
               if (num === null) {
                 return <div key={num} className="emptyCont"></div>;
@@ -86,9 +97,12 @@ export default function ScreenAndButtons({
           <div className="bottomRight">
             <div className="rightLinesCont">
               <div className="lineBox top"></div>
+
               <div className="lineText">OPERATIONS</div>
+
               <div className="lineBox bottom"></div>
             </div>
+
             <img src={PieIcon} className="pieIcon" alt="" />
             {exponentArray.map((exp) => {
               if (exp === "Pi") {
@@ -101,6 +115,7 @@ export default function ScreenAndButtons({
                   />
                 );
               }
+
               return (
                 <ExponentButton
                   exp={exp}
